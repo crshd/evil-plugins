@@ -83,8 +83,8 @@ message string is found, return an empty string."
 If `evil-mode-line-state-msg' returns non-empty string, the mode string
 is \"--STATE MESSAGE--\".  Otherwise, the mode string is \"-\"."
     (let* ((msg (evil-mode-line-state-msg state)) (line msg)
-           (empty (= (length msg) 0)) (tail (if empty "-" "--")))
-      (unless empty (setq line (concat "--" msg)))
+           (empty (= (length msg) 0)) (tail (if empty "-" " ")))
+      (unless empty (setq line (concat " " msg)))
       (list "" line tail)))
 (defadvice skk-mode-string-to-indicator
   (before evil-remove----from-skk-mode-string (mode string) activate)
